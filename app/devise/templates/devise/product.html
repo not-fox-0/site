@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-detail">
+        <img class="product-detail-img" src="{{ prd.product_img.url }}">
+        <h2 class="product-detail-name">{{ prd.name }}</h2>
+        <h2 class="product-detail-descripton">описания:{{ prd.description }}</h2>
+        <h2 class="product-detail-rgb">
+            {% if prd.has_rgb %}
+                rgd подсветка:да
+            {% else %}
+                rgd подсветка:нет
+            {% endif %}
+        </h2>
+        <h2 class="product-detail-price">цена:{{ prd.price }} руб</h2>
+    </div>
+</div>
+
+<div class="comments">
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="comment">
+        <button class="send-comment"></button>
+    </form>
+    {% for comment in comm %}
+    <h2>{{ comment }}</h2>
+    {% endfor %}
+    <h2></h2>
+</div>
+{% endblock %}
