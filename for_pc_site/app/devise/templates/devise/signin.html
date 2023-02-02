@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="pos">
+    <form method="post" class="reg-form">
+        {% csrf_token %}
+            <input type="text" placeholder="username" name="username" class="reg-input">
+            <br>
+            <input type="password" placeholder="password" name="password" class="reg-input">
+            <br>
+            <button class="reg-button"></button>
+            <br>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block script %}
+<!--<script>
+    var inp = document.getElementsByTagName('input')
+    inp[0].placeholder = 'username'
+    inp[1].placeholder = 'password'
+    inp[0].className = 'reg-input'
+    inp[1].className = 'reg-input'
+    inp[0].name = 'username'
+    inp[1].name = 'password'
+</script>
+{% endblock %}

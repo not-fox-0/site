@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        {% for product in prd %}
+        <div class="product">
+            <img class="product-img" src="{{ product.product_img.url }}">
+            <h2 class="product-name"><a href="product_detail/{{ product.slug }}">{{ product.name }}</a></h2>
+            <h2 class="product-descripton">описания:{{ product.description }}</h2>
+            <h2 class="product-rgb">
+                {% if product.has_rgb %}
+                    rgb подсветка:да
+                {% else %}
+                    rgb подсветка:нет
+                {% endif %}
+            </h2>
+            <h2 class="product-price">цена:{{ product.price }}</h2>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
